@@ -37,6 +37,11 @@ SHOW_VALUE_ORIGIN = True
 import os
 
 import clr
+clr.AddReference("System.Data")
+clr.AddReference("PresentationFramework")
+clr.AddReference("PresentationCore
+
+import clr
 # .NET assemblies aren't importable until referenced. System.Data (DataTable)
 # isn't loaded by Revit/pyRevit by default; the WPF ones usually are, but
 # referencing them explicitly avoids load-order surprises.

@@ -8,6 +8,14 @@ visible in the Revit UI and doesn't touch any family.
 import json
 
 import clr
+# .NET assemblies aren't importable until referenced. System.Data (DataTable)
+# isn't loaded by Revit/pyRevit by default; the WPF ones usually are, but
+# referencing them explicitly avoids load-order surprises.
+clr.AddReference("System.Data")
+clr.AddReference("PresentationFramework")
+clr.AddReference("PresentationCore")
+clr.AddReference("WindowsBase")
+
 from System import Guid, String
 
 from Autodesk.Revit.DB import DataStorage, FilteredElementCollector, Transaction

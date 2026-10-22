@@ -39,7 +39,8 @@ import os
 import clr
 clr.AddReference("System.Data")
 clr.AddReference("PresentationFramework")
-clr.AddReference("PresentationCore
+clr.AddReference("PresentationCore")
+clr.AddReference("WindowsBase")
 
 import clr
 # .NET assemblies aren't importable until referenced. System.Data (DataTable)

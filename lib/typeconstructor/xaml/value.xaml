@@ -1,0 +1,20 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add / describe value" Width="460" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False" FontSize="12">
+    <StackPanel Margin="14">
+        <TextBlock x:Name="field_tb" FontWeight="SemiBold" FontSize="14"/>
+        <TextBlock Text="Value (exactly as it appears in the type name)" Margin="0,10,0,2"/>
+        <ComboBox x:Name="code_cb" IsEditable="True" IsTextSearchEnabled="False" FontFamily="Consolas"/>
+        <TextBlock Text="Description" Margin="0,10,0,2"/>
+        <TextBox x:Name="desc_tb" Height="56" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBlock x:Name="info_tb" Foreground="Gray" Margin="0,8,0,0" TextWrapping="Wrap"/>
+        <TextBlock x:Name="error_tb" Foreground="Firebrick" Margin="0,4,0,0" TextWrapping="Wrap"/>
+        <TextBlock Foreground="Gray" FontSize="11" Margin="0,8,0,0" TextWrapping="Wrap"
+                   Text="Saved in this Revit model, so the team sees it after syncing. The family itself isn't changed."/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button x:Name="save_btn" Content="Save" Padding="18,4" IsDefault="True"/>
+            <Button x:Name="cancel_btn" Content="Cancel" Padding="12,4" Margin="8,0,0,0" IsCancel="True"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

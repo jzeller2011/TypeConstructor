@@ -1,0 +1,5 @@
+title: "Type\nConstructor"
+tooltip: >-
+  Stage a new door/wall/etc. type against the firm naming standard.
+  Lists matching types as you fill in values, blocks duplicates,
+  and creates the new type with a conforming name.

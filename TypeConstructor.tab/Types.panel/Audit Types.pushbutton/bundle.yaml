@@ -1,0 +1,4 @@
+title: "Audit\nTypes"
+tooltip: >-
+  Report types whose names don't follow the standard, whose names
+  disagree with their parameters, or that duplicate another type.

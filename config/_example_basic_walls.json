@@ -1,0 +1,49 @@
+{
+  "enabled": false,
+  "_note": "PLACEHOLDER convention to show how a system family works. Replace with your firm's wall naming standard, then set enabled to true.",
+  "name": "Basic Walls",
+  "category": "OST_Walls",
+  "family_filter": "^Basic Wall$",
+  "template": "{wall_class}-{stud}-{thickness}[-{rating}]",
+  "loose_separators": true,
+  "source_match": [],
+  "fields": [
+    {
+      "key": "wall_class",
+      "label": "Wall Class",
+      "param": "Wall Class",
+      "strict": true,
+      "values": [
+        {"code": "INT", "desc": "Interior partition"},
+        {"code": "EXT", "desc": "Exterior wall"},
+        {"code": "SHAFT", "desc": "Shaft wall"}
+      ]
+    },
+    {
+      "key": "stud",
+      "label": "Stud",
+      "param": "Stud Size",
+      "values": [
+        {"code": "MS358", "desc": "3-5/8\" metal stud"},
+        {"code": "MS6", "desc": "6\" metal stud"},
+        {"code": "WS6", "desc": "2x6 wood stud"}
+      ]
+    },
+    {
+      "key": "thickness",
+      "label": "Overall Width (in)",
+      "builtins": ["WALL_ATTR_WIDTH_PARAM"],
+      "kind": "length",
+      "unit": "in",
+      "write": false,
+      "hint": "Read-only: driven by the layers in the compound structure."
+    },
+    {
+      "key": "rating",
+      "label": "Fire Rating (hr)",
+      "builtins": ["FIRE_RATING"],
+      "required": false,
+      "values": ["1", "2", "3"]
+    }
+  ]
+}

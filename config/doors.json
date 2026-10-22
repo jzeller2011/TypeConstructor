@@ -1,0 +1,93 @@
+{
+  "name": "Doors",
+  "category": "OST_Doors",
+  "family_filter": "",
+  "template": "{operation}-{panel}-{width}x{height}-{frame_style}-{frame_material}[-{rating}]",
+  "loose_separators": true,
+  "source_match": ["operation"],
+  "fields": [
+    {
+      "key": "operation",
+      "label": "Operation",
+      "param": "Door Operation",
+      "strict": true,
+      "hint": "Picks which door family the new type is duplicated from.",
+      "values": [
+        {"code": "Swing Single", "desc": "Single leaf, swing"},
+        {"code": "Swing Double", "desc": "Pair of leaves, swing"},
+        {"code": "Sliding", "desc": "Sliding / barn"},
+        {"code": "Pocket", "desc": "Pocket"},
+        {"code": "Bifold", "desc": "Bifold"},
+        {"code": "Overhead", "desc": "Overhead coiling / sectional"}
+      ]
+    },
+    {
+      "key": "panel",
+      "label": "Panel",
+      "param": ["PANEL TYPE", "Door Panel Material"],
+      "strict": true,
+      "values": [
+        {"code": "WD", "desc": "Wood"},
+        {"code": "HM", "desc": "Hollow metal"},
+        {"code": "AL", "desc": "Aluminum"},
+        {"code": "GL", "desc": "Glass"},
+        {"code": "FRP", "desc": "Fiberglass reinforced plastic"}
+      ]
+    },
+    {
+      "key": "width",
+      "label": "Width (in)",
+      "param": "Width",
+      "builtins": ["DOOR_WIDTH", "FAMILY_WIDTH_PARAM"],
+      "kind": "length",
+      "unit": "in"
+    },
+    {
+      "key": "height",
+      "label": "Height (in)",
+      "param": "Height",
+      "builtins": ["DOOR_HEIGHT", "FAMILY_HEIGHT_PARAM"],
+      "kind": "length",
+      "unit": "in"
+    },
+    {
+      "key": "frame_style",
+      "label": "Frame Style",
+      "param": "Frame Type",
+      "strict": true,
+      "values": [
+        {"code": "CAP", "desc": "Cap frame"},
+        {"code": "KD", "desc": "Knock-down"},
+        {"code": "WRAP", "desc": "Wraparound"},
+        {"code": "BUTT", "desc": "Butt (drywall return)"}
+      ]
+    },
+    {
+      "key": "frame_material",
+      "label": "Frame Material",
+      "param": "Frame Material",
+      "strict": true,
+      "values": [
+        {"code": "HM", "desc": "Hollow metal"},
+        {"code": "WD", "desc": "Wood"},
+        {"code": "AL", "desc": "Aluminum"}
+      ]
+    },
+    {
+      "key": "rating",
+      "label": "Fire Rating (min)",
+      "param": "Fire Rating",
+      "builtins": ["DOOR_FIRE_RATING"],
+      "required": false,
+      "strict": true,
+      "hint": "Leave as (none) for non-rated doors; the suffix is dropped from the name.",
+      "values": [
+        {"code": "20", "desc": "20 minute"},
+        {"code": "45", "desc": "45 minute"},
+        {"code": "60", "desc": "1 hour"},
+        {"code": "90", "desc": "1-1/2 hour"},
+        {"code": "180", "desc": "3 hour"}
+      ]
+    }
+  ]
+}

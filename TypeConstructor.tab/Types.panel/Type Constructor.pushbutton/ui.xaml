@@ -1,0 +1,67 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Type Constructor" Width="1180" Height="700" MinWidth="900" MinHeight="480"
+        WindowStartupLocation="CenterScreen" ShowInTaskbar="False" FontSize="12">
+    <DockPanel Margin="10">
+
+        <!-- top bar -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Standard:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <ComboBox x:Name="schema_cb" Width="200"/>
+            <Button x:Name="clear_btn" Content="Clear staging" Margin="12,0,0,0" Padding="10,2"/>
+            <Button x:Name="params_btn" Content="Parameters…" Margin="8,0,0,0" Padding="10,2"
+                    ToolTip="Map name segments to this project's parameters and add filter parameters"/>
+            <CheckBox x:Name="nonconf_cb" Content="Show non-conforming types" Margin="16,0,0,0"
+                      VerticalAlignment="Center"/>
+            <TextBlock x:Name="summary_tb" Margin="16,0,0,0" VerticalAlignment="Center" Foreground="Gray"/>
+        </StackPanel>
+
+        <!-- bottom: proposed name + status + create -->
+        <Border DockPanel.Dock="Bottom" BorderBrush="#DDD" BorderThickness="0,1,0,0" Padding="0,8,0,0" Margin="0,8,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="New type name:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <TextBox x:Name="name_tb" Grid.Column="1" IsReadOnly="True" FontFamily="Consolas"
+                         FontSize="14" Padding="4,3" Background="#F7F7F7"/>
+                <Button x:Name="create_btn" Grid.Column="2" Grid.RowSpan="2" Content="Create type"
+                        Margin="12,0,0,0" Padding="18,6" IsEnabled="False" FontWeight="SemiBold"/>
+                <TextBlock x:Name="status_tb" Grid.Row="1" Grid.Column="1" Margin="0,6,0,0"
+                           TextWrapping="Wrap"/>
+            </Grid>
+        </Border>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="8"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Header="Stage a type  (blank = any)">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="fields_panel" Margin="4"/>
+                </ScrollViewer>
+            </GroupBox>
+
+            <GroupBox x:Name="list_gb" Grid.Column="2" Header="Existing types">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Bottom" Foreground="Gray" Margin="2,4,0,0"
+                               Text="Double-click a type to load its values as a starting point."/>
+                    <ListView x:Name="types_lv">
+                        <ListView.View>
+                            <GridView x:Name="types_gv"/>
+                        </ListView.View>
+                    </ListView>
+                </DockPanel>
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+</Window>
